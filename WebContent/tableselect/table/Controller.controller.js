@@ -117,9 +117,13 @@ sap.ui
 										},
 
 										showInfo : function(oEvent) {
-											// TableExampleUtils.showInfo(jQuery.sap.getModulePath("sap.ui.table.sample.Menus",
-											// "/info.json"),
-											// oEvent.getSource());
+											TableExampleUtils
+													.showInfo(
+															jQuery.sap
+																	.getModulePath(
+																			"sap.ui.table.sample.Menus",
+																			"/info.json"),
+															oEvent.getSource());
 										}
 
 									});
