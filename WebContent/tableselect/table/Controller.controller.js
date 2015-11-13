@@ -20,8 +20,10 @@ sap.ui
 
 											// set explored app's demo model on
 											// this sample
-											var oJSONModel = TableExampleUtils
-													.initSampleDataModel();
+											var oJSONModel = new sap.ui.model.json.JSONModel();
+											oJSONModel.setData(null);
+											// TableExampleUtils
+											// .initSampleDataModel();
 											oView.setModel(oJSONModel);
 
 											oView
@@ -142,6 +144,9 @@ sap.ui
 																this);
 											}
 
+											var oJSONModel = TableExampleUtils
+													.initSampleDataModel();
+											this._oDialog.setModel(oJSONModel);
 											// Multi-select if required
 											var bMultiSelect = !!oEvent
 													.getSource().data("multi");
@@ -165,6 +170,83 @@ sap.ui
 													this._oDialog);
 											this._oDialog.open();
 										},
+										_updateOrder : function(oProduct) {
+											var oOrderModel = this.getView()
+													.getModel();
+											var oCartData = oOrderModel
+													.getData();
+											if (oCartData == null) {
+												oOrderModel
+														.setData({
+															ProductCollection : oProduct
+														});
+											} else {
+												var aCartEntries = oCartData.ProductCollection;
+
+												// var oEntry = null;
+												// for (var i = 0; i <
+												// aCartEntries.length; i++) {
+												// if (aCartEntries[i].ProductId
+												// === oProduct.ProductId) {
+												// oEntry = aCartEntries[i];
+												// break;
+												// }
+												// }
+
+												// if (oEntry === null) {
+												// create new entry
+												// oEntry = {
+												// Id : jQuery.sap.uid(),
+												// Quantity : 1,
+												// Name : oProduct.Name,
+												// ProductId :
+												// oProduct.ProductId,
+												// ProductName :
+												// oProduct.Name,
+												// Price : oProduct.Price,
+												// SupplierName :
+												// oProduct.SupplierName,
+												// Status : oProduct.status,
+												// Weight : oProduct.Weight,
+												// PictureUrl :
+												// oProduct.PictureUrl
+												// };
+												// oCartData.ProductCollection[oCartData.ProductCollection.length]
+												// = oProduct;
+
+												// } else {
+												// update existing entry
+												// oEntry.Quantity += 1;
+												// }
+
+												for (var i = 0; i < oProduct.length; i++) {
+													aCartEntries
+															.push(oProduct[i]);
+												}
+
+												oOrderModel.updateBindings();
+
+												// oOrderModel.setData(oCartData);
+												// oOrderModel
+												// .setData({
+												// ProductCollection : oProduct
+												// });
+
+											}
+
+											var str = oOrderModel.getJSON();
+											// this.getView().setModel(
+											// oOrderModel, "Order");
+											// var aProductsSelected =
+											// oSelectionInfo;
+											// oOrderModel
+											// .setData(
+											// {
+											// count : aProductsSelected.length,
+											// hasCounts :
+											// aProductsSelected.length > 0
+											// }, true);
+										},
 										handleSearch : function(oEvent) {
 											var sValue = oEvent
 													.getParameter("value");
@@ -181,20 +263,72 @@ sap.ui
 											var aContexts = oEvent
 													.getParameter("selectedContexts");
 											if (aContexts.length) {
-												MessageToast
-														.show("You have chosen "
-																+ aContexts
-																		.map(
-																				function(
-																						oContext) {
-																					return oContext
-																							.getObject().Name;
-																				})
-																		.join(
-																				", "));
+												// MessageToast
+												// .show("You have chosen "
+												// + aContexts
+												// .map(
+												// function(
+												// oContext) {
+												// return oContext
+												// .getObject().Name;
+												// })
+												// .join(
+												// ", "));
+												var oView = this.getView();
+												var oSelectionInfo = {};
+												var bSelected = oEvent
+														.getParameter("selectedItems");
+
+												var oModel = oEvent.getSource();
+
+												var oTable = this
+														.byId("table1");
+
+												if (bSelected.length > 0) {
+													for (var i = 0; i < bSelected.length; i++) {
+														var id = bSelected[i]
+																.getId();
+														// oSelectionInfo[bSelected[i]
+														// .getBindingPath()] =
+														// bSelected[i];
+														// var name =
+														// bSelected[i]
+														// getBindingInfo("Name");
+													}
+
+													oSelectionInfo = aContexts
+															.map(function(
+																	oContext) {
+																return oContext
+																		.getObject();
+															});
+
+												}
+												// var sPath = oEvent
+												// .getParameter(
+												// "listItem")
+												// .getBindingContext()
+												// .getPath();
+												// oSelectionInfo[aContexts
+												// .map(
+												// function(
+												// oContext) {
+												// return oContext
+												// .getObject();
+												// })
+												// .getBindingContext()
+												// .getPath()] = bSelected;
+												//
+												this
+														._updateOrder(oSelectionInfo);
+												// set explored app's demo model
+												// on
+												// this sample
+
 											}
 											oEvent.getSource().getBinding(
 													"items").filter([]);
+
 										}
 
 									});

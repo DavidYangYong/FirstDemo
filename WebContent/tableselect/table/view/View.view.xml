@@ -1,12 +1,12 @@
 <mvc:View controllerName="sap.ui.table.sample.Menus.Controller"
 	xmlns="sap.ui.table" xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified"
 	xmlns:c="sap.ui.core" xmlns:m="sap.m">
-	<m:Page showHeader="false" enableScrolling="false" class="sapUiContentPadding">
+	<m:Page showHeader="true" enableScrolling="false" class="sapUiContentPadding">
 		<m:content>
-			<Table id="table" selectionMode="MultiToggle" rows="{/ProductCollection}"
+			<Table id="table1" selectionMode="MultiToggle" rows="{/ProductCollection}"
 				visibleRowCount="7" showColumnVisibilityMenu="{ui>/showVisibilityMenuEntry}"
 				enableColumnFreeze="{ui>/showFreezeMenuEntry}" enableCellFilter="{ui>/enableCellFilter}"
-				columnSelect="onColumnSelect" cellContextmenu="onProductIdCellContextMenu">
+				columnSelect="onColumnSelect" cellContextmenu="onProductIdCellContextMenu" >
 				<toolbar>
 					<m:Toolbar>
 						<m:Title text="Products"></m:Title>

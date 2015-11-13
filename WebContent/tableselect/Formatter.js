@@ -3,7 +3,7 @@ sap.ui.define(function() {
 
 	var Formatter = {
 
-		weightState :  function (fValue) {
+		weightState : function(fValue) {
 			try {
 				fValue = parseFloat(fValue);
 				if (fValue < 0) {
@@ -18,9 +18,18 @@ sap.ui.define(function() {
 			} catch (err) {
 				return "None";
 			}
+		},
+		listProductsSelected : function(oContext) {
+			var mOrder = oContext.getModel("Order").getData();
+			var oModel = oContext.getModel();
+			return Object.keys(mOrder.products).filter(function(sKey) {
+				return mOrder.products[sKey];
+			}).map(function(sKey) {
+				return oModel.getProperty(sKey);
+			});
 		}
 	};
 
 	return Formatter;
 
-}, /* bExport= */ true);
+}, /* bExport= */true);
