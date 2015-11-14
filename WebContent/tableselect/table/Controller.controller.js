@@ -234,7 +234,7 @@ sap.ui
 
 											}
 
-											var str = oOrderModel.getJSON();
+											// var str = oOrderModel.getJSON();
 											// this.getView().setModel(
 											// oOrderModel, "Order");
 											// var aProductsSelected =
@@ -285,16 +285,19 @@ sap.ui
 														.byId("table1");
 
 												if (bSelected.length > 0) {
-													for (var i = 0; i < bSelected.length; i++) {
-														var id = bSelected[i]
-																.getId();
-														// oSelectionInfo[bSelected[i]
-														// .getBindingPath()] =
-														// bSelected[i];
-														// var name =
-														// bSelected[i]
-														// getBindingInfo("Name");
-													}
+													// for (var i = 0; i <
+													// bSelected.length; i++) {
+													// var id = bSelected[i]
+													// .getId();
+													// //
+													// oSelectionInfo[bSelected[i]
+													// // .getBindingPath()] =
+													// // bSelected[i];
+													// // var name =
+													// // bSelected[i]
+													// //
+													// getBindingInfo("Name");
+													// }
 
 													oSelectionInfo = aContexts
 															.map(function(
@@ -302,6 +305,8 @@ sap.ui
 																return oContext
 																		.getObject();
 															});
+													this
+															._updateOrder(oSelectionInfo);
 
 												}
 												// var sPath = oEvent
@@ -319,8 +324,7 @@ sap.ui
 												// .getBindingContext()
 												// .getPath()] = bSelected;
 												//
-												this
-														._updateOrder(oSelectionInfo);
+
 												// set explored app's demo model
 												// on
 												// this sample
