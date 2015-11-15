@@ -17,7 +17,7 @@
 							tooltip="Enable / Disable Freezing Menu Entries" pressed="{ui>/showFreezeMenuEntry}" />
 						<m:ToggleButton icon="sap-icon://grid" tooltip="Enable / Disable Cell Filter"
 							pressed="{ui>/enableCellFilter}" />
-						<m:Button icon="sap-icon://grid" tooltip="Enable / Disable Cell Filter"
+						<m:Button icon="sap-icon://add" tooltip="增加产品"
 							press="handleTableSelectDialogPress">
 							<m:customData>
 								<c:CustomData key="multi" value="true" />
