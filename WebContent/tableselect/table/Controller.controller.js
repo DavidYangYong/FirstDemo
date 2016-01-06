@@ -21,10 +21,75 @@ sap.ui
 											// set explored app's demo model on
 											// this sample
 											var oJSONModel = new sap.ui.model.json.JSONModel();
-											oJSONModel.setData(null);
+											// create JSON model
+											var oModel = new sap.ui.model.odata.ODataModel(
+													"http://localhost:8080/olingo-odata2/ReferenceScenarioNonJaxrs.svc/");
+											// var meta = oModel.getMetadata();
+											// var name = meta.getName();
+											// var mheaders =
+											// '{"Access-Control-Allow-Origin":"*"}';
+											//
+											// oModel.setHeaders(mheaders);
+											// oModel
+											// .read(
+											// "/Employees",
+											// null,
+											// null,
+											// null,
+											// false,
+											// function(odata,
+											// oResponse) {
+											// // create JSON
+											// // model
+											//
+											// // set the odata
+											// // JSON as data
+											// // of JSON model
+											// oJSONModel
+											// .setData(oData);
+											//
+											// });
+											// sap.ui.core.BusyIndicator.show(10);
+											oModel
+													.read(
+															"/Employees",
+															null,
+															null,
+															false,
+															function(oData,
+																	oResponse) {
+																alert("Read successful");
+																oJSONModel
+																		.setData({
+																			ProductCollection : oData.results
+																		});
+															},
+															function(oError) {
+																alert("Read failed");
+															});
+											// oModel
+											// .attachRequestCompleted(function()
+											// {
+											// // var context =
+											// var context = new
+											// sap.ui.model.Context(
+											// oModel,
+											// "/Employees('1')",
+											// null);
+											// var value = oModel
+											// .getProperty(
+											// "EmployeeId",
+											// context);
+											// alert(value); // this
+											// // returns
+											// // undefined
+											// });
+											alert(oJSONModel.getJSON());
+											oView.setModel(oJSONModel);
+											// oJSONModel.setData(null);
 											// TableExampleUtils
 											// .initSampleDataModel();
-											oView.setModel(oJSONModel);
+											// oView.setModel(oJSONModel);
 
 											oView
 													.setModel(

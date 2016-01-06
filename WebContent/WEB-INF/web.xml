@@ -123,7 +123,10 @@
 		<servlet-name>SimpleProxyServlet</servlet-name>
 		<url-pattern>/proxy/*</url-pattern>
 	</servlet-mapping>
-
+<context-param>  
+        <param-name>com.sap.ui5.proxy.REMOTE_LOCATION</param-name>  
+        <param-value>http://localhost:8080</param-value>  
+    </context-param>  
 
 	<!-- ============================================================== -->
 	<!-- Welcome file list                                              -->

@@ -4,9 +4,9 @@
 	<m:Page showHeader="true" enableScrolling="false" class="sapUiContentPadding">
 		<m:content>
 			<Table id="table1" selectionMode="MultiToggle" rows="{/ProductCollection}"
-				visibleRowCount="7" showColumnVisibilityMenu="{ui>/showVisibilityMenuEntry}"
+				visibleRowCount="10" showColumnVisibilityMenu="{ui>/showVisibilityMenuEntry}"
 				enableColumnFreeze="{ui>/showFreezeMenuEntry}" enableCellFilter="{ui>/enableCellFilter}"
-				columnSelect="onColumnSelect" cellContextmenu="onProductIdCellContextMenu" >
+				columnSelect="onColumnSelect" cellContextmenu="onProductIdCellContextMenu">
 				<toolbar>
 					<m:Toolbar>
 						<m:Title text="Products"></m:Title>
@@ -47,15 +47,29 @@
 							<m:Link text="Show Image" href="{ProductPicUrl}" target="_blank" />
 						</template>
 					</Column>
-					<Column id="quantity" width="6rem" hAlign="End"
+					<Column id="quantity" width="3rem" hAlign="End"
 						sortProperty="Quantity">
 						<m:Label text="Quantity" />
 						<template>
-							<m:Label
-								text="{
+							<TextField xmlns="sap.ui.commons" id="id" busy="false"
+								busyIndicatorDelay="1000" visible="true" fieldGroupIds=""
+								value="{
 								path: 'Quantity',
 								type: 'sap.ui.model.type.Integer'
-							}" />
+							}"
+								textDirection="Inherit" enabled="true" editable="true" required="false"
+								width="" maxLength="9" valueState="None" textAlign="Begin"
+								imeMode="Auto" design="Standard" helpId="" accessibleRole="Textbox"
+								name="" placeholder="" ariaDescribedBy="" ariaLabelledBy=""
+								validateFieldGroup="" change="" liveChange="">
+								<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+								<dependents></dependents> <!-- sap.ui.core.Control, since 1.19 -->
+							</TextField>
+<!-- 							<m:Label -->
+<!-- 								text="{ -->
+<!-- 								path: 'Quantity', -->
+<!-- 								type: 'sap.ui.model.type.Integer' -->
+<!-- 							}" /> -->
 						</template>
 						<menu>
 							<u:Menu ariaLabelledBy="quantity">
