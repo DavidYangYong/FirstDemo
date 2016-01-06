@@ -237,7 +237,7 @@
 									press : function() {
 										var lastName_var = tLastName.getValue();
 										//使用$.post方式      
-										var url = "${pageContext.request.contextPath}/login.do";
+										var url = "${pageContext.request.contextPath}/index/hello.do";
 										var jsonModelUpdate = new sap.ui.model.json.JSONModel();
 										jsonModelUpdate.setData({
 											lastName : lastName_var
