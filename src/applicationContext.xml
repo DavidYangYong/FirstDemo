@@ -15,5 +15,5 @@
 			</list>
 		</property>
 	</bean>
-	<import resource="classpath:applicationContext-configDebug.xml"/>
+	<import resource="classpath*:applicationContext-configDebug.xml"/>
 </beans>
