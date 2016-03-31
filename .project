@@ -3,7 +3,6 @@
 	<name>FirstDemo</name>
 	<comment></comment>
 	<projects>
-		<project>SpringMvcConfigDebug</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
