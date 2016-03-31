@@ -10,7 +10,7 @@
 	data-sap-ui-libs='sap.ui.commons, sap.ui.table,sap.ui.ux3'
 	type="text/javascript"></script>
 <script>
-	//create the toolbar button
+	//create the toolbar button 1
 	var selectBtn = new sap.ui.commons.Button({
 
 		text : "Button is show select row value",
