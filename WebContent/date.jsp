@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Datepicker for Bootstrap</title>
+    <title>Datepicker for Bootstrap1</title>
     <script src="//code.jquery.com/jquery-1.9.1.min.js"></script>
     <link id="bs-css" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
     <link id="bsdp-css" href="${pageContext.request.contextPath }/bootstrap-datepicker/css/bootstrap-datepicker3.css" rel="stylesheet">
