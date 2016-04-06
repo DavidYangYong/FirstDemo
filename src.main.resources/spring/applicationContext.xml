@@ -11,9 +11,14 @@
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
 			<list>
-				<value>/WEB-INF/classes/log4j.properties</value>
+				<value>/WEB-INF/classes/properties/log4j.properties</value>
+				<value>/WEB-INF/classes/properties/jdbc.properties</value>
 			</list>
 		</property>
 	</bean>
 	<import resource="classpath*:applicationContext-configDebug.xml"/>
+	<import resource="./applicationContext-core.xml"/>
+		<!-- 配置数据源 -->
+	<import resource="./applicationContext-mybatis.xml"></import>
+	<import resource="./applicationContext-datasource.xml"></import>
 </beans>

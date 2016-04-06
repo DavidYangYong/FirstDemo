@@ -9,7 +9,7 @@
 <!-- spring struts2 config start -->
 <context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/classes/applicationContext.xml</param-value>
+		<param-value>/WEB-INF/classes/spring/applicationContext.xml</param-value>
 	</context-param>
 	<listener>
 		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
@@ -20,16 +20,16 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-	 <servlet>  
-      <servlet-name>springMVC</servlet-name>  
-      <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>  
-      <load-on-startup>1</load-on-startup>  
-  </servlet>  
-    
-    <servlet-mapping>  
-      <servlet-name>springMVC</servlet-name>  
-      <url-pattern>*.do</url-pattern>  
-  </servlet-mapping>  
+	 <servlet>
+      <servlet-name>springMVC</servlet-name>
+      <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+      <load-on-startup>1</load-on-startup>
+  </servlet>
+
+    <servlet-mapping>
+      <servlet-name>springMVC</servlet-name>
+      <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
 	<filter>
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -123,10 +123,10 @@
 		<servlet-name>SimpleProxyServlet</servlet-name>
 		<url-pattern>/proxy/*</url-pattern>
 	</servlet-mapping>
-<context-param>  
-        <param-name>com.sap.ui5.proxy.REMOTE_LOCATION</param-name>  
-        <param-value>http://localhost:8080</param-value>  
-    </context-param>  
+<context-param>
+        <param-name>com.sap.ui5.proxy.REMOTE_LOCATION</param-name>
+        <param-value>http://localhost:8080</param-value>
+    </context-param>
 
 	<!-- ============================================================== -->
 	<!-- Welcome file list                                              -->
