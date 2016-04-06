@@ -10,11 +10,11 @@
 		<!-- MyBatis Generator -->
 		<!-- Java接口和实体类 -->
 		<targetJavaProject>${basedir}/src/main/java</targetJavaProject>
-		<targetMapperPackage>com.isea533.mybatis.mapper</targetMapperPackage>
-		<targetModelPackage>com.isea533.mybatis.model</targetModelPackage>
+		<targetMapperPackage>com.fl.order.dao.mapper</targetMapperPackage>
+		<targetModelPackage>com.fl.order.model</targetModelPackage>
 		<!-- XML生成路径 -->
-		<targetResourcesProject>${basedir}/src/main/resources</targetResourcesProject>
-		<targetXMLPackage>mapper</targetXMLPackage>
+		<targetResourcesProject>${basedir}/src/main/java</targetResourcesProject>
+		<targetXMLPackage>com.fl.order.dao.mapper</targetXMLPackage>
 		<oracle.version>10.2.0.4.0</oracle.version>
 		<!-- 依赖版本 -->
 		<mapper.version>3.2.8</mapper.version>
@@ -57,13 +57,6 @@
 					<overwrite>true</overwrite>
 					<verbose>true</verbose>
 				</configuration>
-				<dependencies>
-					<dependency>
-						<groupId>oracle</groupId>
-						<artifactId>oracle-connector-java</artifactId>
-						<version>${oracle.version}</version>
-					</dependency>
-				</dependencies>
 			</plugin>
 		</plugins>
 	</build>
