@@ -7,6 +7,18 @@
 	<packaging>war</packaging>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- MyBatis Generator -->
+		<!-- Java接口和实体类 -->
+		<targetJavaProject>${basedir}/src/main/java</targetJavaProject>
+		<targetMapperPackage>com.isea533.mybatis.mapper</targetMapperPackage>
+		<targetModelPackage>com.isea533.mybatis.model</targetModelPackage>
+		<!-- XML生成路径 -->
+		<targetResourcesProject>${basedir}/src/main/resources</targetResourcesProject>
+		<targetXMLPackage>mapper</targetXMLPackage>
+		<oracle.version>10.2.0.4.0</oracle.version>
+		<!-- 依赖版本 -->
+		<mapper.version>3.2.8</mapper.version>
+		<spring.version>4.2.5.RELEASE</spring.version>
 	</properties>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
@@ -35,6 +47,23 @@
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 					<webXml>WebContent/WEB-INF/web.xml</webXml>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.mybatis.generator</groupId>
+				<artifactId>mybatis-generator-maven-plugin</artifactId>
+				<version>1.3.2</version>
+				<configuration>
+					<configurationFile>${basedir}/src/main/resources/generator/generatorConfig.xml</configurationFile>
+					<overwrite>true</overwrite>
+					<verbose>true</verbose>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>oracle</groupId>
+						<artifactId>oracle-connector-java</artifactId>
+						<version>${oracle.version}</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 		</plugins>
 	</build>
@@ -136,6 +165,14 @@
 			<artifactId>mapper</artifactId>
 			<!-- 建议使用最新版本 -->
 			<version>3.3.8</version>
+		</dependency>
+		<!-- Mybatis Generator -->
+		<dependency>
+			<groupId>org.mybatis.generator</groupId>
+			<artifactId>mybatis-generator-core</artifactId>
+			<version>1.3.2</version>
+			<!-- <scope>compile</scope> -->
+			<!-- <optional>true</optional> -->
 		</dependency>
 	</dependencies>
 </project>
