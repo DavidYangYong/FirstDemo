@@ -1,8 +1,12 @@
 package com.fl.order.service;
 
-import com.fl.login.domain.Login;
+import java.util.List;
+
+import com.fl.order.model.TLogin;
 
 public interface ILoginService {
 	
-	public void saveLogin(Login login);
+	public void saveLogin(TLogin login);
+	
+	public List<TLogin> queryAll();
 }

@@ -236,7 +236,7 @@
 									text : "Update",
 									press : function() {
 										var lastName_var = tLastName.getValue();
-										//使用$.post方式      
+										//使用$.post方式
 										var url = "${pageContext.request.contextPath}/index/hello.do";
 										var jsonModelUpdate = new sap.ui.model.json.JSONModel();
 										jsonModelUpdate.setData({
@@ -246,13 +246,13 @@
 										//alert(params);
 										$.post(
 
-										url, //服务器要接受的url  
+										url, //服务器要接受的url
 
 										{
 											strJson : params
-										}, //传递的参数       
+										}, //传递的参数
 
-										function cbf(result) { //服务器返回后执行的函数 参数 data保存的就是服务器发送到客户端的数据  
+										function cbf(result) { //服务器返回后执行的函数 参数 data保存的就是服务器发送到客户端的数据
 
 											var msg;
 											if (result.error == null) {
@@ -263,10 +263,10 @@
 											sap.ui.commons.MessageBox.alert("操作成功",function(){
 												oDialogu.close();
 											});
-											
+
 										},
 
-										'json' //数据传递的类型  json  
+										'json' //数据传递的类型  json
 
 										);
 									}
@@ -283,7 +283,7 @@
 				}
 			});
 
-	// create the DataTable control  
+	// create the DataTable control
 	var oTable = new sap.ui.table.Table({
 		id : "tableId",
 		title : "Table Example",
@@ -295,10 +295,10 @@
 			items : [ selectBtn, updateBtn ]
 		})
 	});
-	// define the Table columns  
+	// define the Table columns
 	var oControl = new sap.ui.commons.TextView({
 		text : "{lastName}"
-	}); // short binding notation  
+	}); // short binding notation
 	oTable.addColumn(new sap.ui.table.Column({
 		label : new sap.ui.commons.Label({
 			text : "Last Name"
@@ -308,7 +308,7 @@
 		filterProperty : "lastName",
 		width : "100px"
 	}));
-	oControl = new sap.ui.commons.TextField().bindProperty("value", "name"); // more verbose binding notationt  
+	oControl = new sap.ui.commons.TextField().bindProperty("value", "name"); // more verbose binding notationt
 	oTable.addColumn(new sap.ui.table.Column({
 		label : new sap.ui.commons.Label({
 			text : "First Name"
@@ -355,7 +355,7 @@
 		filterProperty : "rating"
 	}));
 
-	// create some local data  
+	// create some local data
 	var aData = [ {
 		lastName : "Dente",
 		name : "Al",
@@ -379,15 +379,17 @@
 		rating : 3
 	} ];
 
-	// create a JSONModel, fill in the data and bind the Table to this model  
+	// create a JSONModel, fill in the data and bind the Table to this model
 	var oModel = new sap.ui.model.json.JSONModel();
-	oModel.setData({
-		modelData : aData
-	});
+	var sUrl="${pageContext.request.contextPath}/index/queryAll.do";
+	oModel.loadData(sUrl);
+// 	oModel.setData({
+// 		modelData : aData
+// 	});
 	oTable.setModel(oModel);
-	oTable.bindRows("/modelData");
+	oTable.bindRows("/obj");
 
-	// finally place the Table into the UI  
+	// finally place the Table into the UI
 	oTable.placeAt("content");
 </script>
 </head>

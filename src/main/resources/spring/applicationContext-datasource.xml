@@ -12,13 +12,13 @@
 		<property name="url" value="${jdbc.url}"></property>
 		<property name="username" value="${jdbc.username}"></property>
 		<property name="password" value="${jdbc.password}"></property>
-		<property name="maxActive"><value>10</value></property>
-        <property name="initialSize"><value>10</value></property>
-        <property name="maxWait"><value>60000</value></property>
-        <property name="maxIdle"><value>5</value></property>
-        <property name="minIdle"><value>1</value></property>
-        <property name="removeAbandoned"><value>true</value></property>
-        <property name="removeAbandonedTimeout"><value>180</value></property>
+<!-- 		<property name="maxActive"><value>10</value></property> -->
+<!--         <property name="initialSize"><value>10</value></property> -->
+<!--         <property name="maxWait"><value>60000</value></property> -->
+<!--         <property name="maxIdle"><value>5</value></property> -->
+<!--         <property name="minIdle"><value>1</value></property> -->
+<!--         <property name="removeAbandoned"><value>true</value></property> -->
+<!--         <property name="removeAbandonedTimeout"><value>180</value></property> -->
 	</bean>
 
 	<bean name="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">

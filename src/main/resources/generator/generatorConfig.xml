@@ -52,7 +52,7 @@
 			targetProject="${targetResourcesProject}" />
 		<javaClientGenerator targetPackage="${targetMapperPackage}"
 			targetProject="${targetJavaProject}" type="XMLMAPPER" />
-		<table tableName="T_BASEDATA">
+		<table tableName="T_LOGIN">
 <!-- 		 <property name="useActualColumnNames" value="true"/> -->
 			<generatedKey column="F_ID" sqlStatement="oracle"
 				identity="true" />
