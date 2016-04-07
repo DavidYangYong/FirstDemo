@@ -26,11 +26,23 @@
 		defaultModelType="flat">
 		<property name="beginningDelimiter" value="`" />
 		<property name="endingDelimiter" value="`" />
+
 <!-- 		<plugin type="${mapper.plugin}"> -->
 <!-- 			<property name="mappers" value="${mapper.Mapper}" /> -->
 <!-- 		</plugin> -->
 		<plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
-		<commentGenerator type="tk.mybatis.mapper.generator.MapperCommentGenerator"/>
+<!-- 		  <plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin"> -->
+<!--             <property name="searchString" value="Mapper$" /> -->
+<!--             <property name="replaceString" value="Dao" /> -->
+<!--         </plugin> -->
+		  <plugin type="com.fl.mybatis.generator.plugins.RenameDaoClassPlugin">
+            <property name="searchString" value="Mapper" />
+            <property name="replaceString" value="Dao" />
+        </plugin>
+			<!-- 关闭注解信息的生成 -->
+		    <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
 		<jdbcConnection driverClass="${jdbc.driverClassName}"
 			connectionURL="${jdbc.url}" userId="${jdbc.username}" password="${jdbc.password}">
 		</jdbcConnection>
@@ -41,8 +53,10 @@
 		<javaClientGenerator targetPackage="${targetMapperPackage}"
 			targetProject="${targetJavaProject}" type="XMLMAPPER" />
 		<table tableName="T_BASEDATA">
+<!-- 		 <property name="useActualColumnNames" value="true"/> -->
 			<generatedKey column="F_ID" sqlStatement="oracle"
 				identity="true" />
+
 		</table>
 	</context>
 </generatorConfiguration>
