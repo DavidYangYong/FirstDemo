@@ -55,11 +55,11 @@
 <!-- 						建议使用最新版本 -->
 <!-- 						<version>3.3.8</version> -->
 <!-- 					</dependency> -->
-					<dependency>
-					<groupId>com.fl.mybatis</groupId>
-					<artifactId>generator</artifactId>
-					<version>0.0.1-SNAPSHOT</version>
-					</dependency>
+<!-- 					<dependency> -->
+<!-- 					<groupId>com.fl.mybatis</groupId> -->
+<!-- 					<artifactId>generator</artifactId> -->
+<!-- 					<version>0.0.1-SNAPSHOT</version> -->
+<!-- 					</dependency> -->
 				</dependencies>
 			</plugin>
 		</plugins>
