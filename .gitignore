@@ -1,5 +1,5 @@
 /build/
-/target/
-**/.DS_Store
-*.classpath
+**/target/
 .DS_Store
+*.classpath
+src/**/.DS_Store
