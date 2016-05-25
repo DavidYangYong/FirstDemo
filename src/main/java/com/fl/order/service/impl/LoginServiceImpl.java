@@ -1,17 +1,19 @@
 package com.fl.order.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.fl.order.dao.mapper.TLoginDao;
 import com.fl.order.model.TLogin;
 import com.fl.order.service.ILoginService;
 
 @Service
 public class LoginServiceImpl implements ILoginService {
 	
-	// private TLoginDao loginDao;
+	@Autowired
+	private TLoginDao loginDao;
 	
 	@Override
 	public void saveLogin(TLogin login) {
@@ -22,8 +24,8 @@ public class LoginServiceImpl implements ILoginService {
 	@Override
 	public List<TLogin> queryAll() {
 		// TODO Auto-generated method stub
-		// return loginDao.selectAll();
-		return new ArrayList<TLogin>();
+		return loginDao.selectAll();
+		
 	}
 	
 }

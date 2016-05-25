@@ -2,5 +2,5 @@
 **/target/
 /.DS_Store
 *.classpath
-src/**/.DS_Store
-.settings
+**/.DS_Store
+/.settings

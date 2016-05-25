@@ -8,13 +8,13 @@
 <title>Table Select Dialog</title>
 <script id="sap-ui-bootstrap"
 	src="${pageContext.request.contextPath}/resources/sap-ui-core.js"
-	data-sap-ui-libs="sap.m" data-sap-ui-theme="sap_bluecrystal"
+	data-sap-ui-libs="sap.m"  data-sap-ui-theme="sap_bluecrystal"
 	data-sap-ui-xx-bindingSyntax="complex" data-sap-ui-preload="async"
 	data-sap-ui-compatVersion="edge"
 	data-sap-ui-resourceroots='{"sap.ui.table.sample.Menus": "${pageContext.request.contextPath}/tableselect/table","sap.ui.demo.mock": "mockdata",
 	"sap.ui.table.sample.Menus.view": "${pageContext.request.contextPath}/tableselect/table/view",
 	"sap.m.sample.TableSelectDialog": "${pageContext.request.contextPath}/tableselect"}'>
-	
+
 </script>
 <!-- Application launch configuration -->
 <script>

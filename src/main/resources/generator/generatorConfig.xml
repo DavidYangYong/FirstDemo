@@ -27,9 +27,9 @@
 		<property name="beginningDelimiter" value="`" />
 		<property name="endingDelimiter" value="`" />
 
-<!-- 		<plugin type="${mapper.plugin}"> -->
-<!-- 			<property name="mappers" value="${mapper.Mapper}" /> -->
-<!-- 		</plugin> -->
+		<plugin type="${mapper.plugin}">
+			<property name="mappers" value="${mapper.Mapper}" />
+		</plugin>
 		<plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
 <!-- 		  <plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin"> -->
 <!--             <property name="searchString" value="Mapper$" /> -->
@@ -53,8 +53,8 @@
 		<javaClientGenerator targetPackage="${targetMapperPackage}"
 			targetProject="${targetJavaProject}" type="XMLMAPPER" />
 		<table tableName="T_LOGIN">
-<!-- 		 <property name="useActualColumnNames" value="true"/> -->
-			<generatedKey column="F_ID" sqlStatement="oracle"
+		 <property name="useActualColumnNames" value="true"/>
+			<generatedKey column="ID" sqlStatement="oracle"
 				identity="true" />
 
 		</table>

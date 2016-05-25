@@ -7,7 +7,7 @@
     <title>Datepicker for Bootstrap1</title>
     <script src="//code.jquery.com/jquery-1.9.1.min.js"></script>
     <link id="bs-css" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
-    <link id="bsdp-css" href="${pageContext.request.contextPath }/bootstrap-datepicker/css/bootstrap-datepicker3.css" rel="stylesheet">
+    <link id="bsdp-css" href="${pageContext.request.contextPath }/bootstrap-datepicker/css/bootstrap-datepicker3.css"  rel="stylesheet">
     <script>
       var page = {bootstrap:3};
       function swap_bs(){
@@ -40,7 +40,7 @@
     <![endif]-->
        <script src="${pageContext.request.contextPath }/bootstrap-datepicker/js/prettify.min.js"></script>
     <script src="${pageContext.request.contextPath }/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-   
+
     <script src="${pageContext.request.contextPath }/bootstrap-datepicker/js/locales/bootstrap-datepicker.zh-CN.min.js" charset="UTF-8"></script>
   <SCRIPT type="text/javascript">
   $(function(){
