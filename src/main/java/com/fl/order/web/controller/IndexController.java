@@ -43,7 +43,7 @@ public class IndexController {
 		Json json = new Json();
 		try {
 			List<TLogin> list = loginService.queryAll();
-			log.info("list size:" + list.size());
+			// log.info("list size:" + list.size());
 			json.setObj(list);
 		} catch (Exception e) {
 			e.printStackTrace();
