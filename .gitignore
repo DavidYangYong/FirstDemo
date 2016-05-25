@@ -1,6 +1,5 @@
 /build/
-**/target/
-/.DS_Store
-*.classpath
-**/.DS_Store
-/.settings
+.settings/
+.classpath
+target/
+.DS_Store
