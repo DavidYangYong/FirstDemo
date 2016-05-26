@@ -28,6 +28,7 @@
         比如me.gacl.domain.User这个实体类的别名就会被设置成User
          -->
         <package name="com.fl.login.domain"/>
+             <package name="com.fl.order.model"/>
     </typeAliases>
 	<typeHandlers>
 		<typeHandler handler="org.apache.ibatis.type.ClobTypeHandler"

@@ -24,26 +24,26 @@ import com.fl.utils.json.jackson.Json;
 public class IndexController {
 	@Autowired
 	private ILoginService loginService;
-	
+
 	@RequestMapping("hello")
 	public String save(HttpServletRequest request, ModelAndView modelAndView) {
 		TLogin login = new TLogin();
 		String string = request.getParameter("strJson");
-		
+
 		login = JSON.parseObject(string, TLogin.class);
-		// loginService.saveLogin(login);
+		 loginService.saveLogin(login);
 		return "queryAll";
 	}
-	
+
 	private Log log = LogFactory.getLog(IndexController.class);
-	
+
 	@RequestMapping("queryAll")
 	@ResponseBody
 	public void queryAll(HttpServletRequest request, HttpServletResponse response) {
 		Json json = new Json();
 		try {
 			List<TLogin> list = loginService.queryAll();
-			// log.info("list size:" + list.size());
+			log.info("list size:" + list.size());
 			json.setObj(list);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -53,7 +53,7 @@ public class IndexController {
 		}
 		writeJson(json, response);
 	}
-	
+
 	public void writeJson(Object object, HttpServletResponse response) {
 		try {
 			// String json = JSON.toJSONStringWithDateFormat(object, "yyyy-MM-dd
@@ -62,7 +62,7 @@ public class IndexController {
 			response.setContentType("application/json");
 			String msg = "";
 			msg = JSON.toJSONString(object);
-			
+
 			// String json = JSON.toJSONStringWithDateFormat(object,
 			// "yyyy-MM-dd
 			// HH:mm:ss");

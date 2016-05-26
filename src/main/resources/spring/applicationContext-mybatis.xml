@@ -14,7 +14,7 @@
 		<property name="configLocation" value="classpath:mybatis/mybatis-config.xml"></property>
 	</bean>
 
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+	<bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 		<property name="basePackage" value="com.fl.*.dao.mapper" />
 	</bean>
