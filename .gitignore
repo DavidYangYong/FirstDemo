@@ -1,3 +1,5 @@
 target/
 build/
 /.classpath
+bin
+.DS_Store
