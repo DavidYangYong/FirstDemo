@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.fl.order.dao.mapper.TLoginDao" >
-  <resultMap id="BaseResultMap" type="com.fl.order.model.TLogin" >
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fl.order.dao.mapper.TLoginDao">
+  <resultMap id="BaseResultMap" type="com.fl.order.model.TLogin">
     <!--
       WARNING - @mbggenerated
     -->
-    <id column="ID" property="ID" jdbcType="DECIMAL" />
-    <result column="LAST_NAME" property="LAST_NAME" jdbcType="VARCHAR" />
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="LAST_NAME" jdbcType="VARCHAR" property="lastName" />
   </resultMap>
 </mapper>

@@ -1,16 +1,17 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<meta http-equiv="X-UA-Compatible">
-
-		<script src="resources/sap-ui-core.js"
+<meta http-equiv='X-UA-Compatible'/>
+		<script src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
 				id="sap-ui-bootstrap"
-				data-sap-ui-libs="sap.ui.commons, sap.m, sap.me"
-				data-sap-ui-theme="sap_bluecrystal" type="text/javascript">
+				data-sap-ui-libs='sap.ui.commons,sap.ui.table,sap.ui.ux3,sap.ui.m'
+				data-sap-ui-theme="sap_bluecrystal"
+				data-sap-ui-resourceroots='{"firstdemo": "firstdemo"}'>
 		</script>
 		<!-- add sap.ui.table,sap.ui.ux3 and/or other libraries to 'data-sap-ui-libs' if required -->
 
 		<script type="text/javascript">
+
 			sap.ui.localResources("firstdemo");
 			//Register your application js
 			jQuery.sap.registerModulePath('Application', 'Application');

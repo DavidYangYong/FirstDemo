@@ -26,11 +26,13 @@
 		defaultModelType="flat">
 		<property name="beginningDelimiter" value="`" />
 		<property name="endingDelimiter" value="`" />
-
+	<property name="autoDelimitKeywords" value="true"/>
 		<plugin type="${mapper.plugin}">
 			<property name="mappers" value="${mapper.Mapper}" />
 		</plugin>
 		<plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+		<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin"></plugin>
 <!-- 		  <plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin"> -->
 <!--             <property name="searchString" value="Mapper$" /> -->
 <!--             <property name="replaceString" value="Dao" /> -->
@@ -39,24 +41,26 @@
             <property name="searchString" value="Mapper" />
             <property name="replaceString" value="Dao" />
         </plugin>
-			<!-- 关闭注解信息的生成 -->
+<!-- 关闭注解信息的生成 -->
 		    <commentGenerator>
             <property name="suppressAllComments" value="true" />
+             <property name="suppressDate" value="true"/>
         </commentGenerator>
 		<jdbcConnection driverClass="${jdbc.driverClassName}"
 			connectionURL="${jdbc.url}" userId="${jdbc.username}" password="${jdbc.password}">
 		</jdbcConnection>
 		<javaModelGenerator targetPackage="${targetModelPackage}"
-			targetProject="${targetJavaProject}" />
+			targetProject="${targetJavaProject}">
+			<property name="trimStrings" value="true" />
+			</javaModelGenerator>
 		<sqlMapGenerator targetPackage="${targetXMLPackage}"
 			targetProject="${targetResourcesProject}" />
 		<javaClientGenerator targetPackage="${targetMapperPackage}"
 			targetProject="${targetJavaProject}" type="XMLMAPPER" />
 		<table tableName="T_LOGIN">
-		 <property name="useActualColumnNames" value="true"/>
+		 <property name="useActualColumnNames" value="false"/>
 			<generatedKey column="ID" sqlStatement="oracle"
 				identity="true" />
-
 		</table>
 	</context>
 </generatorConfiguration>
