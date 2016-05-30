@@ -3,6 +3,8 @@
 	<name>FirstDemo</name>
 	<comment></comment>
 	<projects>
+		<project>generator</project>
+		<project>yunhan-scc-tools-model</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

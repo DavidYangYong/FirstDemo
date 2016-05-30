@@ -1,6 +1,8 @@
 package com.fl.order.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,9 +26,12 @@ public class LoginServiceImpl implements ILoginService {
 	@Override
 	public List<TLogin> queryAll() {
 		// TODO Auto-generated method stub
-		
-		return loginDao.selectAll();
-		
+		// PageHelper.startPage(1, 10);
+		TLogin tLogin = new TLogin();
+		Map map = new HashMap<>();
+		map.put("id", 1);
+		// return loginDao.queryCommonList("queryCommonList1", map);
+		return null;
 	}
 	
 }

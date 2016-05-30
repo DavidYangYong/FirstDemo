@@ -8,4 +8,23 @@
     <id column="ID" jdbcType="DECIMAL" property="id" />
     <result column="LAST_NAME" jdbcType="VARCHAR" property="lastName" />
   </resultMap>
+  <select id="queryCommonList1" parameterType="com.fl.order.model.TLogin" resultMap="BaseResultMap">
+  	select * from T_Login
+  	<where>
+  		<if test="id!=null">
+  			and id=#{id}
+  		</if>
+  			<if test="lastName!=null">
+  			and =#{lastName}
+  		</if>
+  	</where>
+  </select>
+    <select id="queryCommonList2">
+  	select * from T_Login
+  	<where>
+  		<if test="id!=null">
+  			and id=#{id}
+  		</if>
+  	</where>
+  </select>
 </mapper>
