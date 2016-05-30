@@ -290,6 +290,8 @@ sap.ui.localResources("firstdemo");
 		title : "Table Example",
 		visibleRowCount : 7,
 		firstVisibleRow : 3,
+		enableCellFilter:false,
+		enableBusyIndicator :true,
 		selectionMode : sap.ui.table.SelectionMode.Single,
 		selectionBehavior : sap.ui.table.SelectionBehavior.RowSelector,
 		toolbar : new sap.ui.commons.Toolbar({

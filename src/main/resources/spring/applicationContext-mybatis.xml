@@ -12,13 +12,18 @@
 		<property name="dataSource" ref="dataSource" />
 		<!-- <property name="typeAliasesPackage" value="com.yunhan.scc.article.web.entities"
 			/> -->
-		<property name="configLocation" value="classpath:mybatis/mybatis-config.xml"></property>
+		<property name="configLocation" value="classpath:mybatis/mybatis-config.xml"/>
 	</bean>
 	<bean id="sqlSessionTemplate" class=" org.mybatis.spring.SqlSessionTemplate">
-		<constructor-arg index="0" ref="sqlSessionFactory"></constructor-arg>
+		<constructor-arg index="0" ref="sqlSessionFactory"/>
 	</bean>
 	<bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 		<property name="basePackage" value="com.fl.*.dao.mapper" />
+		<property name="properties">
+			<value>
+				mappers=tk.mybatis.mapper.common.Mapper
+			</value>
+		</property>
 	</bean>
 </beans>
