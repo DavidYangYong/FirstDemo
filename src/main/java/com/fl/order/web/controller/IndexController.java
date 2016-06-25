@@ -51,7 +51,7 @@ public class IndexController {
 			map.put("query_id", "query_id");
 			map.put("query_type", "jqGrid");
 			QueryResultCount queryResultCount = commonQueryService
-					.query(request, map, 2, 5);
+					.query(request, map, 1, 5);
 			log.info("list size:" + queryResultCount.getSize());
 			json.setObj(queryResultCount.getQueryResultList());
 		} catch (Exception e) {

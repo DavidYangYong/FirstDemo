@@ -7,6 +7,7 @@
     -->
     <id column="ID" jdbcType="DECIMAL" property="id" />
     <result column="LAST_NAME" jdbcType="VARCHAR" property="lastName" />
+    <result column="checked" jdbcType="VARCHAR" property="checked"/>
   </resultMap>
   <select id="queryCommonList1" parameterType="com.fl.order.model.TLogin" resultMap="BaseResultMap">
   	select * from T_Login

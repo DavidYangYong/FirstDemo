@@ -15,7 +15,7 @@
 	data-sap-ui-theme="sap_bluecrystal" data-sap-ui-preload="async"
 	data-sap-ui-libs="sap.ui.commons, sap.ui.ux3, sap.ui.demokit"
 	data-sap-ui-bindingSyntax="complex">
-	
+
 </script>
 <!-- the dynamic-mode-check script distinguishes between a static mode where no search is available   -->
 <!-- and a rich mode where a backend provides search results. The default version of the file handles -->
@@ -23,7 +23,6 @@
 <script src="js/dynamic-mode-check.js"></script>
 <script>
 	var oDemokit;
-
 	sap.ui
 			.getCore()
 			.attachInit(
@@ -78,7 +77,7 @@
 										}
 									}
 
-									// Icon URL is computed automatically: e.g. DropDownBox -> /ValueHolders/images/ctrls/dropdownbox-icon.png 
+									// Icon URL is computed automatically: e.g. DropDownBox -> /ValueHolders/images/ctrls/dropdownbox-icon.png
 									// With the ico property it is possible to define an alternative icon.
 									// If no icon is available please add "ico:false"
 									if (oNode.ico !== false && oNode.ref) {

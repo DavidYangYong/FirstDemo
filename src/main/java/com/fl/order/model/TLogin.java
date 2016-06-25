@@ -20,6 +20,16 @@ public class TLogin extends QueryCondition implements Serializable {
 	
 	@Column(name = "LAST_NAME")
 	private String lastName;
+	@Column(name = "checked")
+	private String checked;
+	
+	public String getChecked() {
+		return checked;
+	}
+	
+	public void setChecked(String checked) {
+		this.checked = checked;
+	}
 	
 	private static final long serialVersionUID = 1L;
 	
