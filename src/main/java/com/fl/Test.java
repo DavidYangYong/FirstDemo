@@ -3,7 +3,6 @@ package com.fl;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import com.fl.mybatis.mapper.provider.common.QueryCommonSelectProvider;
 import com.fl.order.model.TLogin;
 
 public class Test {
@@ -14,9 +13,7 @@ public class Test {
 		TLogin parameterObject = new TLogin();
 		Class parameterType = (parameterObject == null) ? Object.class
 				: parameterObject.getClass();
-		QueryCommonSelectProvider queryCommonSelectProvider = new QueryCommonSelectProvider(
-				null, null);
-		test(queryCommonSelectProvider);
+		
 		System.out.println(1);
 	}
 	

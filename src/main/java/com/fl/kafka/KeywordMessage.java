@@ -3,6 +3,8 @@ package com.fl.kafka;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.fl.utils.BeanUtils;
+
 import kafka.message.Message;
 import kafka.utils.VerifiableProperties;
 
@@ -22,8 +24,8 @@ public class KeywordMessage implements kafka.serializer.Encoder<ProducerData> {
 	
 	@Override
 	public byte[] toBytes(ProducerData data) {
-		System.out.println("encoder ---> " + user);
-		return BeanUtils.object2Bytes(user);
+		System.out.println("encoder ---> " + data);
+		return BeanUtils.object2Bytes(data);
 	}
 	
 }

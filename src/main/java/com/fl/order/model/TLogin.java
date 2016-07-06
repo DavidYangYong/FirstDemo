@@ -9,10 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.yunhan.scc.tools.component.module.query.QueryCondition;
-
 @Table(name = "T_LOGIN")
-public class TLogin extends QueryCondition implements Serializable {
+public class TLogin implements Serializable {
 	@Id
 	@Column(name = "ID")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

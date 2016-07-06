@@ -1,6 +1,5 @@
 package com.fl.kafka;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.Properties;
 
@@ -22,13 +21,13 @@ public class KafkaProducer {
 	
 	/** 制造数据 */
 	public void createMessage() {
-		ProducerData producerData = new ProducerData();
-		producerData.setId(0);
-		producerData.setUser("Chenhui");
-		producerData.setKeyword("china");
-		producerData.setCurrentDate(new Date().toString());
-		List<Keyword> msg = new ArrayList<Keyword>();
-		msg.add(producerData);
+		// ProducerData producerData = new ProducerData();
+		// producerData.setId(0);
+		// producerData.setUser("Chenhui");
+		// producerData.setKeyword("china");
+		// producerData.setCurrentDate(new Date().toString());
+		// List<Keyword> msg = new ArrayList<Keyword>();
+		// msg.add(producerData);
 	}
 	
 	public void execKafka() {
@@ -47,7 +46,7 @@ public class KafkaProducer {
 		for (long nEvents = 0; nEvents < events; nEvents++) {
 			/** 制造数据 */
 			ProducerData producerData = new ProducerData();
-			producerData.setId(nEvents);
+			producerData.setId(nEvents + "");
 			producerData.setUser("Chenhui" + nEvents);
 			producerData.setKeyword("china");
 			producerData.setCurrentDate(new Date().toString());
@@ -55,11 +54,11 @@ public class KafkaProducer {
 			System.out.println(producerData);
 			
 			KeyedMessage<ProducerData, ProducerData> data = new KeyedMessage<ProducerData, ProducerData>(
-					TOPIC, msg, msg);
-			System.out.println(msg);
-			KeyedMessage<User, User> data = new KeyedMessage<User, User>(TOPIC,
-					msg, msg);
-			producer.send(data);
+					TOPIC, producerData, producerData);
+			System.out.println(producerData);
+			KeyedMessage<ProducerData, ProducerData> data1 = new KeyedMessage<ProducerData, ProducerData>(
+					TOPIC, producerData, producerData);
+			producer.send(data1);
 		}
 		producer.close();
 		System.out.println("producer is successful .");
@@ -73,8 +72,8 @@ public class KafkaProducer {
 		properties.put("metadata.broker.list", "localhost:9092");// 声明kafka
 																	// broker
 		// 序列化类
-		props.put("serializer.class", "com.fl.kafka.KeywordMessage");
-		props.put("request.required.acks", "1");
+		properties.put("serializer.class", "com.fl.kafka.KeywordMessage");
+		properties.put("request.required.acks", "1");
 		return new Producer<ProducerData, ProducerData>(
 				new ProducerConfig(properties));
 	}

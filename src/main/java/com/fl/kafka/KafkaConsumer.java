@@ -5,11 +5,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
+import com.fl.utils.BeanUtils;
+
 import kafka.consumer.ConsumerConfig;
 import kafka.consumer.ConsumerIterator;
 import kafka.consumer.KafkaStream;
 import kafka.javaapi.consumer.ConsumerConnector;
-import kafka.serializer.StringDecoder;
 import kafka.serializer.StringEncoder;
 import kafka.utils.VerifiableProperties;
 
@@ -48,26 +49,33 @@ public class KafkaConsumer {
 		Map<String, Integer> topicCountMap = new HashMap<String, Integer>();
 		topicCountMap.put(KafkaProducer.TOPIC, new Integer(1));
 		
-//		StringDecoder keyDecoder = new StringDecoder(
-//				new VerifiableProperties());
-//		StringDecoder valueDecoder = new StringDecoder(
-//				new VerifiableProperties());
+		// StringDecoder keyDecoder = new StringDecoder(
+		// new VerifiableProperties());
+		// StringDecoder valueDecoder = new StringDecoder(
+		// new VerifiableProperties());
 		
-		KeywordMessage keyDecoder=new KeywordMessage(new VerifiableProperties();
+		KeywordMessage keyDecoder = new KeywordMessage(
+				new VerifiableProperties());
 		
-		KeywordMessage valueDecoder=new KeywordMessage(new VerifiableProperties();
+		KeywordMessage valueDecoder = new KeywordMessage(
+				new VerifiableProperties());
 		
-		Map<String, List<KafkaStream<String, String>>> consumerMap = consumer
-				.createMessageStreams(topicCountMap, keyDecoder, valueDecoder);
-		KafkaStream<String, String> stream = consumerMap
+		Map<String, List<KafkaStream<byte[], byte[]>>> consumerMap = consumer
+				.createMessageStreams(topicCountMap);
+		KafkaStream<byte[], byte[]> stream = consumerMap
 				.get(KafkaProducer.TOPIC).get(0);
-		ConsumerIterator<ProducerData, ProducerData> it = stream.iterator();
-		while (it.hasNext()){
-			ProducerData producerData=it.next().message();
-			if(producerData!=null)
-			System.out.println(producerData.getUser());
-		}
+		ConsumerIterator<byte[], byte[]> it = stream.iterator();
+		while (it.hasNext()) {
+			byte[] producerDataBytes = it.next().message();
+			if (producerDataBytes != null) {
+				ProducerData producerData = (ProducerData) BeanUtils
+						.bytes2Object(producerDataBytes);
+				System.out.println(producerData.getUser());
+			}
 			
+		}
+		consumer.commitOffsets();
+		
 	}
 	
 	public static void main(String[] args) {

@@ -1,6 +1,8 @@
 package com.fl.kafka;
 
-public class ProducerData {
+import java.io.Serializable;
+
+public class ProducerData implements Serializable {
 	private String id;
 	private String user;
 	private String keyword;

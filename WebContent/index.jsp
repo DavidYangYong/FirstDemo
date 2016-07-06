@@ -7,8 +7,7 @@
 <title>Hello World</title>
 <script id='sap-ui-bootstrap' src='resources/sap-ui-core.js'
 	data-sap-ui-theme="sap_bluecrystal"
-	data-sap-ui-libs='sap.ui.commons,sap.m'
-	type="text/javascript"></script>
+	data-sap-ui-libs='sap.ui.commons,sap.m' type="text/javascript"></script>
 <script>
 sap.ui.localResources("firstdemo");
 //Register your application js
@@ -20,8 +19,7 @@ jQuery.sap.require("Application");
 var app = new Application({ root : "content" });
 </script>
 </head>
-
 <body class="sapUiBody" role="application">
-		<div id="content"></div>
+	<div id="content"></div>
 </body>
 </html>
