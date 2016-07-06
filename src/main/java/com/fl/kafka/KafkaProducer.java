@@ -10,11 +10,11 @@ import kafka.serializer.StringEncoder;
 
 public class KafkaProducer extends Thread {
 	
-	private String topic;
+	public final static String TOPIC = "TEST-TOPIC";
 	
 	public KafkaProducer(String topic) {
 		super();
-		this.topic = topic;
+		
 	}
 	
 	@Override
@@ -22,7 +22,7 @@ public class KafkaProducer extends Thread {
 		Producer producer = createProducer();
 		int i = 0;
 		while (true) {
-			producer.send(new KeyedMessage<Integer, String>(topic,
+			producer.send(new KeyedMessage<Integer, String>(TOPIC,
 					"message: " + i++));
 			try {
 				TimeUnit.SECONDS.sleep(1);
