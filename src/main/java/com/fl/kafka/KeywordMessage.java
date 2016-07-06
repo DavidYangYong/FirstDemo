@@ -4,11 +4,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import kafka.message.Message;
+import kafka.utils.VerifiableProperties;
 
 public class KeywordMessage implements kafka.serializer.Encoder<ProducerData> {
 	
 	public static final Logger LOG = LoggerFactory
 			.getLogger(ProducerData.class);
+	
+	public KeywordMessage(VerifiableProperties props) {
+		
+	}
 	
 	public Message toMessage(ProducerData words) {
 		LOG.info("start in encoding...");
@@ -17,8 +22,8 @@ public class KeywordMessage implements kafka.serializer.Encoder<ProducerData> {
 	
 	@Override
 	public byte[] toBytes(ProducerData data) {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("encoder ---> " + user);
+		return BeanUtils.object2Bytes(user);
 	}
 	
 }

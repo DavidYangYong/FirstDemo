@@ -13,6 +13,9 @@ import kafka.serializer.StringDecoder;
 import kafka.serializer.StringEncoder;
 import kafka.utils.VerifiableProperties;
 
+/**
+ * 消费者示例代码
+ */
 public class KafkaConsumer {
 	private final ConsumerConnector consumer;
 	
@@ -32,7 +35,9 @@ public class KafkaConsumer {
 		props.put("auto.commit.interval.ms", "1000");
 		props.put("auto.offset.reset", "smallest");
 		// 序列化类
-		props.put("serializer.class", "kafka.serializer.StringEncoder");
+		// props.put("serializer.class", "kafka.serializer.StringEncoder");
+		
+		props.put("serializer.class", KeywordMessage.class.getName());
 		
 		ConsumerConfig config = new ConsumerConfig(props);
 		
@@ -43,18 +48,26 @@ public class KafkaConsumer {
 		Map<String, Integer> topicCountMap = new HashMap<String, Integer>();
 		topicCountMap.put(KafkaProducer.TOPIC, new Integer(1));
 		
-		StringDecoder keyDecoder = new StringDecoder(
-				new VerifiableProperties());
-		StringDecoder valueDecoder = new StringDecoder(
-				new VerifiableProperties());
+//		StringDecoder keyDecoder = new StringDecoder(
+//				new VerifiableProperties());
+//		StringDecoder valueDecoder = new StringDecoder(
+//				new VerifiableProperties());
+		
+		KeywordMessage keyDecoder=new KeywordMessage(new VerifiableProperties();
+		
+		KeywordMessage valueDecoder=new KeywordMessage(new VerifiableProperties();
 		
 		Map<String, List<KafkaStream<String, String>>> consumerMap = consumer
 				.createMessageStreams(topicCountMap, keyDecoder, valueDecoder);
 		KafkaStream<String, String> stream = consumerMap
 				.get(KafkaProducer.TOPIC).get(0);
-		ConsumerIterator<String, String> it = stream.iterator();
-		while (it.hasNext())
-			System.out.println(it.next().message());
+		ConsumerIterator<ProducerData, ProducerData> it = stream.iterator();
+		while (it.hasNext()){
+			ProducerData producerData=it.next().message();
+			if(producerData!=null)
+			System.out.println(producerData.getUser());
+		}
+			
 	}
 	
 	public static void main(String[] args) {
