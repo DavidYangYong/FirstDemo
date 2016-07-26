@@ -9,8 +9,8 @@
 	<context:annotation-config />
 	<!-- 参数工具 -->
 	<!-- 配置自动扫描的包 -->
-	<context:component-scan base-package="com.fl.*.service"></context:component-scan>
-	<context:component-scan base-package="com.fl.*.dao.mapper"></context:component-scan>
-	<context:component-scan base-package="com.fl.mybatis.*"></context:component-scan>
+<!-- 	<context:component-scan base-package="com.fl.*.service"></context:component-scan> -->
+<!-- 	<context:component-scan base-package="com.fl.*.dao.mapper"></context:component-scan> -->
+<!-- 	<context:component-scan base-package="com.fl.mybatis.*"></context:component-scan> -->
 	<!-- 导入配置资源文件 -->
 </beans>

@@ -46,7 +46,7 @@ public class JdbcReadDemo {
 		Connection con = getConnection();
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		String sql = "select a.PURCHASEORDERCODE,a.COMMODITYCODE  from purchaseorderitems a where rownum<100000";
+		String sql = "select a.PURCHASEORDERCODE,a.COMMODITYCODE  from purchaseorderitems a where rownum<100";
 		List<ProducerData> list = new ArrayList<>();
 		try {
 			ps = con.prepareStatement(sql);

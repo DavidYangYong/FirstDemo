@@ -19,6 +19,9 @@
 	<import resource="classpath*:applicationContext-configDebug.xml"/>
 	<import resource="./applicationContext-core.xml"/>
 		<!-- 配置数据源 -->
-	<import resource="./applicationContext-mybatis.xml"></import>
-	<import resource="./applicationContext-datasource.xml"></import>
+<!-- 	<import resource="./applicationContext-mybatis.xml"></import> -->
+<!-- 	<import resource="./applicationContext-datasource.xml"></import> -->
+
+<!-- kafka config-->
+<import resource="./applicationContext-kafka.xml"></import>
 </beans>

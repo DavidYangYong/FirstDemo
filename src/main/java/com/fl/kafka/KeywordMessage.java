@@ -13,6 +13,10 @@ public class KeywordMessage implements kafka.serializer.Encoder<ProducerData> {
 	public static final Logger LOG = LoggerFactory
 			.getLogger(ProducerData.class);
 	
+	public KeywordMessage() {
+		
+	}
+	
 	public KeywordMessage(VerifiableProperties props) {
 		
 	}
