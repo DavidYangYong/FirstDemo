@@ -53,7 +53,7 @@ public class IndexController {
 			// System.out.println("every one : " + ((end - start)));
 		}
 		
-		return "queryAll";
+		return "hello";
 	}
 	
 	private Log log = LogFactory.getLog(IndexController.class);

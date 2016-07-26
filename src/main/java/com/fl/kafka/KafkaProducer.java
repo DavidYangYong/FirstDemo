@@ -14,7 +14,7 @@ import kafka.producer.ProducerConfig;
  */
 public class KafkaProducer {
 	
-	public final static String TOPIC = "TEST-TOPIC1";
+	public final static String TOPIC = "TEST-TOPIC2";
 	
 	public KafkaProducer(String topic) {
 		super();
