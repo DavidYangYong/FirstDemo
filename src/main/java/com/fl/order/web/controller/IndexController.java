@@ -2,7 +2,6 @@ package com.fl.order.web.controller;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,17 +16,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSON;
-import com.fl.kafka.KafkaProducer;
-import com.fl.kafka.ProducerData;
-import com.fl.kafka.consumer.multi.JdbcReadDemo;
-import com.fl.kafka.consumer.multi.MultiThreadConsumerGroup;
 import com.fl.order.model.TLogin;
+import com.fl.order.service.ILoginService;
 
 @Controller
 @RequestMapping("index")
 public class IndexController {
-	// @Autowired
-	// private ILoginService loginService;
+	@Autowired
+	private ILoginService loginService;
 	@Autowired
 	private KafkaTemplate<Integer, String> kafkaTemplate;
 	
@@ -36,22 +32,22 @@ public class IndexController {
 		TLogin login = new TLogin();
 		String string = request.getParameter("strJson");
 		
-		// login = JSON.parseObject(string, TLogin.class);
-		// loginService.saveLogin(login);
+		login = JSON.parseObject(string, TLogin.class);
+		loginService.saveLogin(login);
 		
 		// KafkaProducer kafkaProducer = new KafkaProducer("test");
 		// kafkaProducer.execKafka();
-		List<ProducerData> list = JdbcReadDemo.process();
-		for (int nEvents = 0; nEvents < list.size(); nEvents++) {
-			/** 制造数据 */
-			ProducerData producerData = list.get(nEvents);
-			
-			long start = System.currentTimeMillis();
-			kafkaTemplate.send(KafkaProducer.TOPIC, producerData.getId());
-			kafkaTemplate.flush();
-			long end = System.currentTimeMillis();
-			// System.out.println("every one : " + ((end - start)));
-		}
+		// List<ProducerData> list = JdbcReadDemo.process();
+		// for (int nEvents = 0; nEvents < list.size(); nEvents++) {
+		// /** 制造数据 */
+		// ProducerData producerData = list.get(nEvents);
+		//
+		// long start = System.currentTimeMillis();
+		// kafkaTemplate.send(KafkaProducer.TOPIC, producerData.getId());
+		// kafkaTemplate.flush();
+		// long end = System.currentTimeMillis();
+		// // System.out.println("every one : " + ((end - start)));
+		// }
 		
 		return "hello";
 	}
@@ -61,29 +57,29 @@ public class IndexController {
 	@RequestMapping("queryAll")
 	@ResponseBody
 	public void queryAll(HttpServletRequest request, HttpServletResponse response) {
-		String zooKeeper = "10.100.4.102:2181";
-		String groupId = "jd-group";
-		String topic = KafkaProducer.TOPIC;
-		int threads = 1;
-		
-		MultiThreadConsumerGroup example = new MultiThreadConsumerGroup(
-				zooKeeper, groupId, topic);
-		try {
-			example.run(threads);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ExecutionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		try {
-			Thread.sleep(10000);
-		} catch (InterruptedException ie) {
-			
-		}
-		example.shutdown();
+		// String zooKeeper = "10.100.4.102:2181";
+		// String groupId = "jd-group";
+		// String topic = KafkaProducer.TOPIC;
+		// int threads = 1;
+		//
+		// MultiThreadConsumerGroup example = new MultiThreadConsumerGroup(
+		// zooKeeper, groupId, topic);
+		// try {
+		// example.run(threads);
+		// } catch (InterruptedException e) {
+		// // TODO Auto-generated catch block
+		// e.printStackTrace();
+		// } catch (ExecutionException e) {
+		// // TODO Auto-generated catch block
+		// e.printStackTrace();
+		// }
+		//
+		// try {
+		// Thread.sleep(10000);
+		// } catch (InterruptedException ie) {
+		//
+		// }
+		// example.shutdown();
 		
 		// Json json = new Json();
 		// try {
@@ -95,6 +91,8 @@ public class IndexController {
 		// json.setMsg("获取数据失败");
 		// }
 		// writeJson(json, response);
+		List<TLogin> list = loginService.queryAll();
+		System.out.println(list.size());
 	}
 	
 	public void writeJson(Object object, HttpServletResponse response) {

@@ -30,8 +30,7 @@ public class LoginServiceImpl implements ILoginService {
 		TLogin tLogin = new TLogin();
 		Map map = new HashMap<>();
 		map.put("id", 1);
-		// return loginDao.queryCommonList("queryCommonList1", map);
-		return null;
+		return loginDao.queryCommonList1(map);
 	}
 	
 }

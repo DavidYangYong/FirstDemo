@@ -10,6 +10,6 @@ sap.ui.app.Application.extend("Application", {
 		// create app view and put to html root element
 		var root = this.getRoot();
 		sap.ui.jsview("app", "firstdemo.App").placeAt(root);
-		
+	
 	}
 });
