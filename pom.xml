@@ -176,11 +176,11 @@
 			<artifactId>fastjson</artifactId>
 			<version>1.2.8</version>
 		</dependency>
-<!-- 		<dependency> -->
-<!-- 			<groupId>com.fl.mybatis</groupId> -->
-<!-- 			<artifactId>generator</artifactId> -->
-<!-- 			<version>0.0.1-SNAPSHOT</version> -->
-<!-- 		</dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>com.fl.mybatis</groupId> -->
+		<!-- <artifactId>generator</artifactId> -->
+		<!-- <version>0.0.1-SNAPSHOT</version> -->
+		<!-- </dependency> -->
 		<!-- <dependency> -->
 		<!-- <groupId>org.webjars</groupId> -->
 		<!-- <artifactId>openui5</artifactId> -->
@@ -197,50 +197,52 @@
 			<version>0.10.0.0</version>
 		</dependency>
 		<dependency>
-	    <groupId>org.apache.kafka</groupId>
-	    <artifactId>kafka-streams</artifactId>
-	    <version>0.10.0.0</version>
-	</dependency>
+			<groupId>org.apache.kafka</groupId>
+			<artifactId>kafka-streams</artifactId>
+			<version>0.10.0.0</version>
+		</dependency>
 		<!-- kafka整合storm -->
 		<dependency>
 			<groupId>org.apache.storm</groupId>
 			<artifactId>storm-core</artifactId>
 			<version>1.0.1</version>
-			   <exclusions>  
-          <exclusion>  
-               <groupId>org.slf4j</groupId>  
-               <artifactId>log4j-over-slf4j</artifactId>  
-          </exclusion>  
-          <exclusion>  
-               <groupId>org.slf4j</groupId>  
-               <artifactId>slf4j-api</artifactId>  
-          </exclusion>  
-     </exclusions>  
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>log4j-over-slf4j</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.storm</groupId>
 			<artifactId>storm-kafka</artifactId>
 			<version>1.0.1</version>
 		</dependency>
-	<!-- spring整合kafka -->
-    <dependency>
-        <groupId>org.springframework.kafka</groupId>
-        <artifactId>spring-kafka</artifactId>
-        <version>1.0.2.RELEASE</version>
-    </dependency>
-    	<!-- spring整合solr-->
- <dependency>
-    <groupId>org.springframework.data</groupId>
-    <artifactId>spring-data-solr</artifactId>
-    <version>2.0.2.RELEASE</version>
-</dependency>
-
-
-<dependency>
-  <groupId>org.apache.solr</groupId>
-  <artifactId>solr-core</artifactId>
-  <version>5.2.0</version>
-</dependency>
+		<!-- spring整合kafka -->
+		<dependency>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka</artifactId>
+			<version>1.0.2.RELEASE</version>
+		</dependency>
+		<!-- spring整合solr -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-solr</artifactId>
+			<version>2.0.2.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.solr</groupId>
+			<artifactId>solr-core</artifactId>
+			<version>5.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.integration</groupId>
+			<artifactId>spring-integration-core</artifactId>
+			<version>4.3.1.RELEASE</version>
+		</dependency>
 	</dependencies>
-	
 </project>
