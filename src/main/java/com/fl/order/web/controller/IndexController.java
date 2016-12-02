@@ -29,9 +29,10 @@ public class IndexController {
 	
 	@RequestMapping("hello")
 	public String save(HttpServletRequest request, ModelAndView modelAndView) {
-		TLogin login = new TLogin();
+		
 		String string = request.getParameter("strJson");
 		
+		TLogin login = new TLogin();
 		login = JSON.parseObject(string, TLogin.class);
 		loginService.saveLogin(login);
 		
@@ -103,7 +104,6 @@ public class IndexController {
 			response.setContentType("application/json");
 			String msg = "";
 			msg = JSON.toJSONString(object);
-			
 			// String json = JSON.toJSONStringWithDateFormat(object,
 			// "yyyy-MM-dd
 			// HH:mm:ss");
