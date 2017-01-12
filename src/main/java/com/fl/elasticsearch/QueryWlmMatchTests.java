@@ -10,8 +10,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
-import org.springframework.data.elasticsearch.core.query.Criteria;
-import org.springframework.data.elasticsearch.core.query.CriteriaQuery;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -33,13 +31,13 @@ public class QueryWlmMatchTests {
 		// when
 		
 		// then
-		CriteriaQuery criteriaQuery = new CriteriaQuery(
-				new Criteria("MANDT").contains("654983120915364413160024"));
+		// CriteriaQuery criteriaQuery = new CriteriaQuery(
+		// new Criteria("MANDT").contains("654983120915364413160024"));
 		// when
-		WlmMatch sampleEntity1 = elasticsearchTemplate
-				.queryForObject(criteriaQuery, WlmMatch.class);
-		// then
-		assertThat(sampleEntity1, is(notNullValue()));
+		// WlmMatch sampleEntity1 = elasticsearchTemplate
+		// .queryForObject(criteriaQuery, WlmMatch.class);
+		// // then
+		// assertThat(sampleEntity1, is(notNullValue()));
 		List<WlmMatch> list = repository
 				.findByMandt("654983120915364413160024");
 		assertThat(list, is(notNullValue()));
