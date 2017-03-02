@@ -7,7 +7,7 @@
 
     <elasticsearch:repositories base-package="com.fl.elasticsearch.in"/>
 
-    <elasticsearch:transport-client id="client" cluster-nodes="192.168.111.93:9300,192.168.111.94:9300" cluster-name="jnc-es-application" />
+    <elasticsearch:transport-client id="client" cluster-nodes="192.168.111.93:9300,192.168.111.94:9300,192.168.111.144:9300" cluster-name="jnc-es-application" />
 
     <bean name="elasticsearchTemplate" class="org.springframework.data.elasticsearch.core.ElasticsearchTemplate">
         <constructor-arg name="client" ref="client"/>
